@@ -1,0 +1,6 @@
+.venv
+.vscode
+__pycache__
+my_base.db
+logs/*
+.env
