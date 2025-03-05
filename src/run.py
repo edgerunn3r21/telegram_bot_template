@@ -7,16 +7,13 @@ from aiogram.types import BotCommandScopeAllPrivateChats
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-from dotenv import load_dotenv
-
 from middlewares.db_session import DataBaseSession
 from database.engine import create_db, drop_db, session_maker
 from handlers.user_private import user_router
 from handlers.admin_private import admin_router
 from common.admin_cmds_list import set_admin_commands
 from common.user_cmds_list import private as user_cmds
-
-load_dotenv(override=True)
+from config import token, admin_list
 
 # Create directories if they don't exist
 os.makedirs("logs", exist_ok=True)
@@ -29,10 +26,10 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 bot = Bot(
-    token=os.getenv("TOKEN"), default=DefaultBotProperties(parse_mode=ParseMode.HTML)
+    token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML)
 )
 
-admin_list = os.getenv("ADMIN_LIST").replace(" ", "").split(",") if os.getenv("ADMIN_LIST") else None
+admin_list = admin_list.replace(" ", "").split(",") if admin_list else None
 bot.my_admins_list = admin_list if admin_list else []
 
 dp = Dispatcher()
