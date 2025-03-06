@@ -1,4 +1,3 @@
-# commands visible only to administrator users
 from aiogram.types import BotCommand, BotCommandScopeChat
 from aiogram import Bot
 
