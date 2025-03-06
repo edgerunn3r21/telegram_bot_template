@@ -12,7 +12,7 @@ Run the following command to create a virtual environment:
   ```
 - **macOS/Linux**:
   ```sh
-  python3 -m venv .venv
+  python -m venv .venv
   ```
 
 ### 2. Activate Virtual Environment and Install Dependencies
@@ -45,7 +45,7 @@ Create and configure a `.env` file with the necessary environment variables.
   ```
 - **macOS/Linux**:
   ```sh
-  python3 src/run.py
+  python src/run.py
   ```
 
 ## Additional Notes
