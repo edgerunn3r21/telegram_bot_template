@@ -41,11 +41,11 @@ Create and configure a `.env` file with the necessary environment variables.
 ### 4. Run the Project
 - **Windows**:
   ```sh
-  py src\run.py
+  py run.py
   ```
 - **macOS/Linux**:
   ```sh
-  python src/run.py
+  python run.py
   ```
 
 ## Additional Notes
