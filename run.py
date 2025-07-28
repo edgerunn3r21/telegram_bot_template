@@ -7,13 +7,13 @@ from aiogram.types import BotCommandScopeAllPrivateChats
 from aiogram.client.default import DefaultBotProperties
 from aiogram.enums import ParseMode
 
-from middlewares.db_session import DataBaseSession
-from database.engine import create_db, drop_db, session_maker
-from handlers.user_private import user_router
-from handlers.admin_private import admin_router
-from common.admin_cmds_list import set_admin_commands
-from common.user_cmds_list import private as user_cmds
-from config import token, admin_list
+from app.middlewares import DataBaseSession
+from app.database import create_db, drop_db, session_maker
+from app.handlers.user_private import user_router
+from app.handlers.admin_private import admin_router
+from app.common import set_admin_commands
+from app.common import user_private
+from app.config import token, admin_list
 
 # Create directories if they don't exist
 os.makedirs("logs", exist_ok=True)
@@ -55,7 +55,7 @@ async def main():
 
     await bot.delete_webhook(drop_pending_updates=True)
     await bot.set_my_commands(
-        commands=user_cmds, scope=BotCommandScopeAllPrivateChats()
+        commands=user_private, scope=BotCommandScopeAllPrivateChats()
     )
 
     if admin_list:

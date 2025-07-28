@@ -6,7 +6,7 @@ from aiogram.filters import Command
 from aiogram.fsm.context import FSMContext
 from aiogram.types import Message
 
-from filters.is_admin import IsAdmin
+from app.filters import IsAdmin
 
 logger = logging.getLogger(__name__)
 

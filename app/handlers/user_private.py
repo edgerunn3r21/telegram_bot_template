@@ -5,8 +5,8 @@ from aiogram import types, Router
 from sqlalchemy.ext.asyncio import AsyncSession
 from aiogram.filters import CommandStart
 
-from database.orm_query import orm_read, orm_create
-from database.models import User
+from app.database import orm_read, orm_create
+from app.database import User
 
 logger = logging.getLogger(__name__)
 
