@@ -1,6 +1,6 @@
 .venv
 .vscode
 __pycache__
-my_base.db
+database.sqlite
 logs/*
 .env
