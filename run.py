@@ -25,9 +25,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-bot = Bot(
-    token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML)
-)
+bot = Bot(token=token, default=DefaultBotProperties(parse_mode=ParseMode.HTML))
 
 admin_list = admin_list.replace(" ", "").split(",") if admin_list else None
 bot.my_admins_list = admin_list if admin_list else []
@@ -54,12 +52,12 @@ async def main():
     dp.update.middleware(DataBaseSession(session_pool=session_maker))
 
     await bot.delete_webhook(drop_pending_updates=True)
-    await bot.set_my_commands(
-        commands=user_private, scope=BotCommandScopeAllPrivateChats()
-    )
+    # await bot.set_my_commands(
+    # commands=user_private, scope=BotCommandScopeAllPrivateChats()
+    # )
 
-    if admin_list:
-        await set_admin_commands(admin_list, bot)
+    # if admin_list:
+    # await set_admin_commands(admin_list, bot)
 
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
