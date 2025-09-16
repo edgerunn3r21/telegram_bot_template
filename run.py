@@ -9,8 +9,8 @@ from aiogram.enums import ParseMode
 
 from app.middlewares import DataBaseSession
 from app.database import create_db, drop_db, session_maker
-from app.handlers.user_private import user_router
-from app.handlers.admin_private import admin_router
+from app.handlers.user import user_router
+from app.handlers.admin import admin_router
 from app.common import set_admin_commands
 from app.common import user_private
 from app.config import token, admin_list

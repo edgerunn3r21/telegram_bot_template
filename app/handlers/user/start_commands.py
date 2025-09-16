@@ -10,10 +10,10 @@ from app.database import User
 
 logger = logging.getLogger(__name__)
 
-user_router = Router()
+start_router = Router()
 
 
-@user_router.message(CommandStart())
+@start_router.message(CommandStart())
 async def start_cmd(message: types.Message, session: AsyncSession):
     try:
         tg_id = str(message.from_user.id)
